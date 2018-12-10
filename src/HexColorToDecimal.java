@@ -4,18 +4,30 @@ public class HexColorToDecimal
 {
     public static void main(String args[])
     {
-        String userInput = getUserInput();
-        HexNumber hexNumber = new HexNumber(userInput);
-        System.out.println("The decimal value of " + userInput + " is: \n" +
-            "Red: " + hexNumber.getRedDecimal() + "\n" +
-            "Green: " + hexNumber.getGreenDecimal() + "\n" +
-            "Blue: " + hexNumber.getBlueDecimal());
+        Scanner scanner = new Scanner(System.in);
+        System.out.print("HexToDec or DecToHex (enter one)? ");
+        String userDecision = scanner.next();
+
+        if(userDecision.equals("HexToDec")) {
+            String userInput = getUserInput(scanner);
+            HexNumber hexNumber = new HexNumber(userInput);
+            System.out.println();
+            System.out.println("The decimal value of " + userInput + " is: \n" +
+                    "Red: " + hexNumber.getRedDecimal() + "\n" +
+                    "Green: " + hexNumber.getGreenDecimal() + "\n" +
+                    "Blue: " + hexNumber.getBlueDecimal());
+        }
+        else if(userDecision.equals("DecToHex")) {
+
+        }
+        else {
+            System.out.println("Invalid user input, closing program");
+        }
     }
 
-    public static String getUserInput()
+    public static String getUserInput(Scanner scanner)
     {
         String userInput;
-        Scanner scanner = new Scanner(System.in);
         while(true)
         {
             System.out.print("Enter in a hex number (ex: '#7FFFD4'): ");
