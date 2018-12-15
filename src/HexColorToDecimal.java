@@ -18,7 +18,11 @@ public class HexColorToDecimal
                     "Blue: " + hexNumber.getBlueDecimal());
         }
         else if(userDecision.equals("DecToHex")) {
-
+            System.out.print("Enter the red, green, and blue decimal (ex. 255,99,71): ");
+            String decString = scanner.next();
+            String[] decStrings = decString.split(",");
+            String hexString = DecToHex(Integer.parseInt(decStrings[0]), Integer.parseInt(decStrings[1]), Integer.parseInt(decStrings[2]));
+            System.out.println("The hex string is: " + hexString);
         }
         else {
             System.out.println("Invalid user input, closing program");
@@ -45,6 +49,10 @@ public class HexColorToDecimal
         return userInput;
     }
 
-
-
+    public static String DecToHex(int redDec, int greenDec, int blueDec) {
+        int remainder = -1;
+        String hexString = "#";
+        hexString += Integer.toHexString(redDec) + Integer.toHexString(greenDec)+ Integer.toHexString(blueDec);
+        return hexString;
+    }
 }
